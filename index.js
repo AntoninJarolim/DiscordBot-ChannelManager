@@ -73,6 +73,7 @@ bot.on('message', message=>{
             razeni = 1;
             if(args[1] === 'off')
             razeni = 0;
+            break;
 
 
         }
