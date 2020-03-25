@@ -66,16 +66,14 @@ bot.on('message', message=>{
             return message.channel.send('Neni definovan druhy parametr!')
             if(args[1] === '--help')
             return message.channel.send('Tato funkce zapne seřazování zpráv podle nejnovější - když někdo napíše do jakéhokoliv kanálu, tak se objeví úplně nahoře.\nPoužij argumenty on/off pro zapnutí a vypnutí. ')
-            else
             if(args[1] === 'on')
             {
                 razeni = 1;
-                message.channel.send('Zapl si řazení podle nejnovejší zprávy!')
-            }
-            
+                return message.channel.send('Zapl si řazení podle nejnovejší zprávy!')
+            }            
             if(args[1] === 'off')
-            message.channel.send('Vypl si řazení podle nejnovejší zprávy!')
             razeni = 0;
+            message.channel.send('Vypl si řazení podle nejnovejší zprávy!')
             break;
 
 
