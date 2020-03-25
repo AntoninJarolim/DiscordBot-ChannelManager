@@ -3,8 +3,9 @@ const Discord = require('discord.js');
 const  bot = new Discord.Client();
 
 const token = process.env.TOKEN;
-
+ 
 const PREFIX = '!';
+let razeni = 1;
 
 bot.on( 'ready' , () => {
     console.log( 'Robí!');
@@ -13,15 +14,12 @@ bot.on( 'ready' , () => {
 
 
 bot.on('message', message=>{
-
-    if (!message.content.startsWith(PREFIX) || message.author.bot) return;
-
-
-    var razeni = 1;
+    
     if(razeni)
     message.channel.setPosition(0);
     
     let args = message.content.substring(PREFIX.length).split(" ");
+    if (!message.content.startsWith(PREFIX) || message.author.bot) return; //nepotrebuju aby program sel do switche, pokud zprava nezacina vykricnikem, nebo pokud to poslal bot
 
     switch(args[0]){
         case 'hej':
@@ -70,8 +68,11 @@ bot.on('message', message=>{
             return message.channel.send('Tato funkce zapne seřazování zpráv podle nejnovější - když někdo napíše do jakéhokoliv kanálu, tak se objeví úplně nahoře.\nPoužij argumenty on/off pro zapnutí a vypnutí. ')
             else
             if(args[1] === 'on')
+            message.channel.send('Zapl si řazení podle nejnovejší zprávy!')
             razeni = 1;
+            break;
             if(args[1] === 'off')
+            message.channel.send('Vypl si řazení podle nejnovejší zprávy!')
             razeni = 0;
             break;
 
