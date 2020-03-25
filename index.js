@@ -13,8 +13,14 @@ bot.on( 'ready' , () => {
 
 
 bot.on('message', message=>{
-    message.channel.setPosition(0);
 
+    if (!message.content.startsWith(PREFIX) || message.author.bot) return;
+
+
+    var razeni = 1;
+    if(razeni)
+    message.channel.setPosition(0);
+    
     let args = message.content.substring(PREFIX.length).split(" ");
 
     switch(args[0]){
@@ -36,11 +42,14 @@ bot.on('message', message=>{
             message.channel.bulkDelete(args[1])
             message.channel.send('Smazal si '+ args[1] + ' zpráv!')
             break;
+
         case 'info':
             if(args[1] === '--help')
             return message.channel.send('Tak sí píííííča?')
             else
-            message.channel.send('Seznam příkazů: \n      hej \n      delete \nPoužij --help pro více info o každém z nich!')
+            message.channel.send('Seznam příkazů: \n      hej \n      delete \n      spamuj \n      razeni \nPoužij --help pro více info o každém z nich!')
+            break;
+
         case 'spamuj':
             if(args[1] === '--help')
             return message.channel.send('Ano, tohle je naprosto otravné. V zasade to proste spamuje:)\nPoužij druhý argument pro počet zpráv které je třeba pospamovat.')
@@ -51,7 +60,22 @@ bot.on('message', message=>{
             for (i = 0; i < args[1]; i++) {
                 message.channel.send(i + 'je vetši než: ')
             }
-                }
+               
+            break;
+
+        case 'razeni':
+            if(!args[1])
+            return message.channel.send('Neni definovan druhy parametr!')
+            if(args[1] === '--help')
+            return message.channel.send('Tato funkce zapne seřazování zpráv podle nejnovější - když někdo napíše do jakéhokoliv kanálu, tak se objeví úplně nahoře.\nPoužij argumenty on/off pro zapnutí a vypnutí. ')
+            else
+            if(args[1] === 'on')
+            razeni = 1;
+            if(args[1] === 'off')
+            razeni = 0;
+
+
+        }
 })
 
 bot.login(token);
