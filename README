@@ -1,0 +1,21 @@
+Author of this bot: https://github.com/AntoninJarolim .
+Feel free to use whatever part of code you want. Any pull requests are appreciated!
+
+
+How to get this your bot working:
+
+Requirements:
+installed node
+check via any console 
+node -v 
+Returns version of node if installed.
+
+in your repo:
+npm install 
+Should install all dependecies - discord.js and dotenv.
+
+
+Create .env file in your repo. Your token will be stored here!
+TOKEN=here-comes-your-token
+
+ 
