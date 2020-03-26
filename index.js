@@ -9,6 +9,7 @@ var razeni = 1;
 
 bot.on('ready', () => {
     console.log('Robí!');
+    bot.user.setActivity('tvojí mámu!', {type: 'WATCHING'})
 })
 
 
