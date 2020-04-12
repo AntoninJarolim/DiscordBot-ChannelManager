@@ -112,7 +112,7 @@ function stringsToObject(objectWithStrings){
     return objectWithObjects;
 }
 bot.on('ready', () => {
-    console.log('Booted!');
+    console.log('Booted! Guild count: ' + bot.guilds.cache.array().length);
     bot.user.setActivity('tvojí mámu!', {type: 'WATCHING'})
     fileManager.readFile('.\\var\\timedMessages.json', (err, data) => {
         if (err) throw err;
