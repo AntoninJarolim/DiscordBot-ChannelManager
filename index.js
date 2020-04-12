@@ -114,7 +114,7 @@ function stringsToObject(objectWithStrings){
 bot.on('ready', () => {
     console.log('Booted! Guild count: ' + bot.guilds.cache.array().length);
     bot.user.setActivity('tvojí mámu!', {type: 'WATCHING'})
-    fileManager.readFile('.\\var\\timedMessages.json', (err, data) => {
+    fileManager.readFile('.\/var\/timedMessages.json', (err, data) => {
         if (err) throw err;
         try
         {
@@ -136,7 +136,7 @@ bot.setInterval(function(){
         {
             zpravy[0].channelID.send(zpravy[0].messageText);  
             zpravy.shift();
-            fileManager.writeFile('.\\var\\timedMessages.json', JSON.stringify(zpravy, null, 2), function(err){
+            fileManager.writeFile('.\/var\/timedMessages.json', JSON.stringify(zpravy, null, 2), function(err){
                 if (err) return err;
             });
         }
@@ -271,7 +271,7 @@ bot.on('message', message => {
                 zpravy.sort(function(a, b) { return a.time - b.time})
             }
             //save TimedMessages in case of outage
-            fileManager.writeFile('.\\var\\timedMessages.json', JSON.stringify(zpravy, null, 2), function(err){
+            fileManager.writeFile('.\/var\/timedMessages.json', JSON.stringify(zpravy, null, 2), function(err){
                 if (err) return err;
             });
     }
