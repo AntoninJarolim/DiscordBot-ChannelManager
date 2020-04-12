@@ -242,7 +242,7 @@ bot.on('message', message => {
                 return message.channel.send('Neni definovan druhy parametr! Použij --help!')
             }
             if (args[1] === '--help') {
-                return message.channel.send('Tato funkce umožňuje odeslat zprávu do určitého channelu v předem daný čas!\nPrvní arugument je čas. Jsou dva přijatelné formáty např.:\n   1. 18:46  - dneska v tento čas\n   2. 18:46-24.7.2020  - umožňuje specifikovat čas i den.\nJako druhý argument definuj přesné jméno kanálu, do kterého se bude zpráva odesílat.\nPoté už piš samotnou zprávu.\nNapříklad !sendat 18:46 tondajetop Tonda je nejlepsi!"')
+                return message.channel.send('Tato funkce umožňuje odeslat zprávu do určitého channelu v předem daný čas!\nPrvní arugument je čas. Jsou dva přijatelné formáty např.:\n   1. 18:46  - dneska v tento čas\n   2. 18:46-24.7.2020  - umožňuje specifikovat čas i den.\nJako druhý argument definuj přesné jméno kanálu, do kterého se bude zpráva odesílat.\nPoté už piš samotnou zprávu.\nNapříklad !sendat 18:46 tondafans Tonda je nejlepsi!"')
             }
             //set time if valid 
             let time = args[1];
