@@ -41,7 +41,7 @@ function timeValidation(unvalidated){
     let now = new Date();
     let x = unvalidated.split("-");
     let time = x[0];
-    let date = x[1];
+    let date = x[1]; 
     if(time.length != 5)
     {
         return 'Špatně zapsaný čas!';
@@ -148,6 +148,12 @@ bot.setInterval(function(){
 bot.on('message', message => {
 
     if (razeni) {
+        try{ 
+            message.channel.setPosition(0);
+        }
+        catch{
+            console.log('Nemas prava menit poradi channelu!');
+        }
         message.channel.setPosition(0);
     }
 
@@ -246,7 +252,7 @@ bot.on('message', message => {
             }
             //set time if valid 
             let time = args[1];
-            let check = timeValidation(time);
+            let check = timeValidation(time); 
             if(check)
             {
                 message.channel.send(check);
@@ -262,7 +268,7 @@ bot.on('message', message => {
             let messageContent = message.content.substring(PREFIX.length + args[0].length + args[1].length + args[2].length + 3);
             //create TimedMessage object using those defined variables
             zpravy.unshift(new TimedMessage(time, messageContent, channelkamtoposle));
-
+            
             console.log('Zprava: "' + zpravy[0].messageText +'" bude odeslana v ' + zpravy[0].time + ' do kanalu ' + zpravy[0].channelID);
             message.channel.send('Zprava: "' + zpravy[0].messageText +'" bude odeslana v ' + time + ' do kanalu ' + channelkamtoposle);
             //many reasons to sort zpravy by time 
